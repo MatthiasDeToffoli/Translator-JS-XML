@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<EXAMPLE>Bonjour Monde</EXAMPLE>
+<translation>
+  <example>Bonjour Monde</example>
+</translation>
