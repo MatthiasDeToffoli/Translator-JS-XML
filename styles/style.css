@@ -1,0 +1,8 @@
+.FRBtn,
+.EnBtn {
+  cursor: pointer;
+}
+
+.btnExample {
+  max-width: 100px;
+}

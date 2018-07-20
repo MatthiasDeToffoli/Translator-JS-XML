@@ -1,6 +1,7 @@
-const FR_XML_PATH = "./xml/fr.xml";
-const EN_XML_PATH = "./xml/en.xml";
-const DEFAULT_LANGUAGE = "FR";
+const FR_XML_PATH = "../xml/fr.xml";
+const EN_XML_PATH = "../xml/en.xml";
+const DEFAULT_LANGUAGE = "EN";
+const USE_DEFAULT_LANGUAGE = true;
 const FR = "FR";
 const EN = "EN";
 
@@ -31,17 +32,23 @@ var xmlhttpFR = new XMLHttpRequest();
   function frXMLGet(xml) {
     frXML = xml.responseXML;
 
-    if(DEFAULT_LANGUAGE === FR)
+    if(DEFAULT_LANGUAGE === FR && USE_DEFAULT_LANGUAGE)
       Translate(FR);
+
+      $(".FRBtn").click(function(){
+        Translate(FR);
+      });
   }
-
-
-
 
     function enXMLGet(xml) {
       enXML = xml.responseXML;
-      if(DEFAULT_LANGUAGE === EN)
-      Translate(EN);
+      if(DEFAULT_LANGUAGE === EN && USE_DEFAULT_LANGUAGE)
+        Translate(EN);
+
+        $(".ENBtn").click(function(){
+          Translate(EN);
+        });
+
     }
 
 function Translate(language){
