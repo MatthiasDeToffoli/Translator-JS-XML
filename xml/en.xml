@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <translation>
-  <example> Hello World </example>
-  <language> English </language>
+  <example>Hello World</example>
+  <language>English</language>
+  <en>English</en>
+  <fr>French</fr>
 </translation>

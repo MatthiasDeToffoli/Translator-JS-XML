@@ -33,25 +33,25 @@ var xmlhttpFR = new XMLHttpRequest();
     frXML = xml.responseXML;
 
     if(DEFAULT_LANGUAGE === FR && USE_DEFAULT_LANGUAGE)
-      Translate(FR);
+      SelectLanguageForTranslate(FR);
 
       $(".FRBtn").click(function(){
-        Translate(FR);
+        SelectLanguageForTranslate(FR,$(this).hasClass("firstLChose"));
       });
   }
 
     function enXMLGet(xml) {
       enXML = xml.responseXML;
       if(DEFAULT_LANGUAGE === EN && USE_DEFAULT_LANGUAGE)
-        Translate(EN);
+        SelectLanguageForTranslate(EN);
 
         $(".ENBtn").click(function(){
-          Translate(EN);
+          SelectLanguageForTranslate(EN,$(this).hasClass("firstLChose"));
         });
 
     }
 
-function Translate(language){
+function SelectLanguageForTranslate(language){
   var xml;
   switch (language) {
     case "FR":
@@ -64,9 +64,22 @@ function Translate(language){
       xml = frXML;
   }
 
+  Translate(xml);
+  TranslateTitle(xml);
+}
+
+function Translate(xml){
   $(".Translatable").each(function(){
     var xmlElement = xml.getElementsByTagName($(this).attr("key"));
     if(xmlElement != null && xmlElement.length > 0)
       this.innerHTML = xmlElement[0].innerHTML;
+  });
+}
+
+function TranslateTitle(xml){
+  $(".TitleTranslatable").each(function(){
+    var xmlElement = xml.getElementsByTagName($(this).attr("key"));
+    if(xmlElement != null && xmlElement.length > 0)
+      $(this).attr("title",xmlElement[0].innerHTML);
   });
 }
