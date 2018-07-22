@@ -1,6 +1,15 @@
 $(document).ready(function(){
   TranslateByParents();
+
+  $(".ENBtn").click(function(){
+    $(window.parent)[0].SelectLanguageForTranslate("EN");
+  });
+
+  $(".FRBtn").click(function(){
+    $(window.parent)[0].SelectLanguageForTranslate("FR");
+  });
 });
+
 
 function TranslateByParents(){
   if(window !== null && window !== undefined)
