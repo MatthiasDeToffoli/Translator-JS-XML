@@ -5,8 +5,9 @@ const USE_DEFAULT_LANGUAGE = true;
 const FR = "FR";
 const EN = "EN";
 
-var frXML, enXML;
+var frXML, enXML, myXML;
 var xmlhttpFR = new XMLHttpRequest();
+var currentLanguage;
 
   xmlhttpFR.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -31,7 +32,6 @@ var xmlhttpFR = new XMLHttpRequest();
 
   function frXMLGet(xml) {
     frXML = xml.responseXML;
-
     if(DEFAULT_LANGUAGE === FR && USE_DEFAULT_LANGUAGE)
       SelectLanguageForTranslate(FR);
 
@@ -51,35 +51,45 @@ var xmlhttpFR = new XMLHttpRequest();
 
     }
 
+
 function SelectLanguageForTranslate(language){
-  var xml;
+  currentLanguage = language;
+
   switch (language) {
     case "FR":
-      xml = frXML;
+      myXML = frXML;
       break;
     case "EN":
-      xml = enXML;
+      myXML = enXML;
       break;
     default:
-      xml = frXML;
+      myXML = frXML;
   }
 
-  Translate(xml);
-  TranslateTitle(xml);
+  Translate(myXML);
+  TranslateTitle(myXML);
+  $(".TranslatableIFrame").each(function(){
+    if($(this)[0].contentWindow.TranslateByParents !== undefined)
+      $(this)[0].contentWindow.TranslateByParents();
+  });
 }
 
 function Translate(xml){
   $(".Translatable").each(function(){
-    var xmlElement = xml.getElementsByTagName($(this).attr("key"));
-    if(xmlElement != null && xmlElement.length > 0)
-      this.innerHTML = xmlElement[0].innerHTML;
+    this.innerHTML = GetTranslation(xml,$(this).attr("key"));
   });
 }
 
 function TranslateTitle(xml){
   $(".TitleTranslatable").each(function(){
-    var xmlElement = xml.getElementsByTagName($(this).attr("key"));
-    if(xmlElement != null && xmlElement.length > 0)
-      $(this).attr("title",xmlElement[0].innerHTML);
+      $(this).attr("title",GetTranslation(xml,$(this).attr("key")));
   });
+}
+
+function GetTranslation(xml,key){
+  var xmlElement = xml.getElementsByTagName(key);
+  if(xmlElement != null && xmlElement.length > 0)
+    return xmlElement[0].innerHTML
+
+  return key;
 }
