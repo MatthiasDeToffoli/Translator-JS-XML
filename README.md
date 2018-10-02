@@ -39,7 +39,7 @@ Example : <pre><code><span><</span>div class="TitleTranslatable" key="mytrad"<sp
 
 For add different href link with localization you have to use the class HrefTranslatable.
 
-Example : <pre><code><span><a</span> class="HrefTranslatable" key="mytrad"<span>link<</span><span>/a></span></code></pre>
+Example : <pre><code><span><a</span> class="HrefTranslatable" key="mytrad"><span>link<</span><span>/a></span></code></pre>
 
 you can also use the key download for change a download link it's useful if you have a document in some languages.
 <hr>
