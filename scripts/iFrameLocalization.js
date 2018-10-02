@@ -23,5 +23,9 @@ function TranslateByParents(){
           $(".TitleTranslatable").each(function(){
               $(this).attr("title",$(window.parent)[0].GetTranslation($(window.parent)[0].myXML,$(this).attr("key")));
           });
+
+          $(".HrefTranslatable").each(function(){
+              $(this).attr("href",$(window.parent)[0].GetTranslation($(window.parent)[0].myXML,$(this).attr("key")));
+          });
         }
 }

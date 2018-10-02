@@ -68,6 +68,7 @@ function SelectLanguageForTranslate(language){
 
   Translate(myXML);
   TranslateTitle(myXML);
+  TranslateHref(myXML);
   $(".TranslatableIFrame").each(function(){
     if($(this)[0].contentWindow.TranslateByParents !== undefined)
       $(this)[0].contentWindow.TranslateByParents();
@@ -80,9 +81,19 @@ function Translate(xml){
   });
 }
 
+function TranslateAttr(attr,xml,caller){
+  caller.attr(attr,GetTranslation(xml,caller.attr("key")));
+}
+
 function TranslateTitle(xml){
   $(".TitleTranslatable").each(function(){
-      $(this).attr("title",GetTranslation(xml,$(this).attr("key")));
+      TranslateAttr("title",xml,$(this));
+  });
+}
+
+function TranslateHref(xml){
+  $(".HrefTranslatable").each(function(){
+      TranslateAttr("href",xml,$(this));
   });
 }
 

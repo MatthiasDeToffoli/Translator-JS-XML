@@ -20,7 +20,7 @@ Example EN.xml :
     <span><</span>mytrad<span>></span>Hello World<span><</span>/mytrad<span>></span>
   <span><</span>/translation<span>></span>
   </pre></code>
-  
+
 Example FR.xml :
   <pre><code>          
   <span><</span>?xml version="1.0" encoding="utf-8"?<span>></span>
@@ -28,13 +28,20 @@ Example FR.xml :
     <span><</span>mytrad<span>></span>Bonjour Monde<span><</span>/mytrad<span>></span>
   <span><</span>/translation<span>></span>
   </pre></code>
-  
+
 <hr>
 
 For translate a title you have to use the class TitleTranslatable.
 
 Example : <pre><code><span><</span>div class="TitleTranslatable" key="mytrad"<span>><</span>/div<span>></span></code></pre>
 
+<hr>
+
+For add different href link with localization you have to use the class HrefTranslatable.
+
+Example : <pre><code><span><a </span>div class="HrefTranslatable" key="mytrad"<span>><</span>/div<span>></span><span>link<</span><span>/a></span></code></pre>
+
+you can also use download for change a download link it's useful if you have a document in some languages.
 <hr>
 
 For create a button you have to add a class in your element (FRBtn for french, ENBtn for english)

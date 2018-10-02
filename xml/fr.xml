@@ -5,4 +5,7 @@
   <en>Anglais</en>
   <fr>Français</fr>
   <iframeexample>Si vous voyez ceci c'est parceque les scripts fonctionnent ici</iframeexample>
+  <linkimg>./img/FR.png</linkimg>
+  <linkimg2>./../../img/FR.png</linkimg2>
+  <link>lien</link>
 </translation>
