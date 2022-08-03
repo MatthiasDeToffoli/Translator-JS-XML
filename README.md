@@ -62,3 +62,5 @@ After that use same class than it parent in your iframe page. You can create but
 The repository contain an example of the using of this.
 
 Enjoy :)
+
+*<sub>Made with jquery, the script can't work without it</sub>*
